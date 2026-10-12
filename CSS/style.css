@@ -1,0 +1,131 @@
+/* ▼ 全体のリセットと基本設定 */
+* {
+    box-sizing: border-box; /* 枠線や内側の余白（padding）を、要素の幅・高さの計算に含める設定。レイアウト崩れを防ぐWebデザインの基本です */
+    margin: 0; /* ブラウザが元々持っている外側の余白を消してゼロにします */
+    padding: 0; /* ブラウザが元々持っている内側の余白を消してゼロにします */
+}
+
+body {
+    font-family: sans-serif; /* 文字の書体をゴシック体（指定なしの標準）にします */
+    background-color: #f4f7f6; /* ページ全体の背景を少しグレーがかった落ち着いた色にします */
+    color: #333; /* 文字の色を真っ黒ではなく、少しだけ薄い黒にして目に優しくします */
+    padding: 20px; /* 画面の端に少し余白を作って、要素が画面の端に張り付かないようにします */
+}
+
+/* ▼ 画面中央の白いメインエリア */
+.container {
+    max-width: 500px; /* スマホ画面では100%の幅になりますが、PC等で見ても幅が500px以上には広がらないように制限します */
+    margin: 0 auto; /* 左右の余白を「auto（自動）」にすることで、要素を画面のど真ん中に配置します */
+    background: #fff; /* 背景を真っ白にします */
+    padding: 20px; /* 箱の内側に20pxの余白を作ります */
+    border-radius: 12px; /* 箱の角を少し丸くして柔らかい印象にします */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1); /* 箱の周りにうっすらと影をつけて、浮き上がっているように見せます */
+}
+
+header h1 {
+    text-align: center; /* タイトルの文字を中央揃えにします */
+    color: #4a90e2; /* タイトルを爽やかな青色にします */
+    margin-bottom: 20px; /* タイトルの下に余白を作って、フォームとくっつかないようにします */
+}
+
+/* ▼ 入力フォームエリアのデザイン */
+.form-section {
+    margin-bottom: 30px; /* 入力エリアと記録一覧の間に大きな余白を作ります */
+    padding-bottom: 20px; /* 線を引くための内側の余白です */
+    border-bottom: 2px dashed #eee; /* 入力エリアの下に、薄いグレーの破線（dashed）を引いて区切ります */
+}
+
+.form-group {
+    margin-bottom: 15px; /* 各入力項目（日付、名前など）の間に縦の余白を作ります */
+}
+
+.form-row {
+    display: flex; /* Flexboxという機能を使って、中身（身長と体重）を横並びにします */
+    gap: 15px; /* 横並びにした身長と体重の間に、15pxの隙間を作ります */
+}
+
+.form-row .form-group {
+    flex: 1; /* 横並びにした身長と体重の入力欄を、同じ幅（1:1）で均等に割り当てます */
+}
+
+label {
+    display: block; /* labelタグは本来横に並ぶ性質がありますが、blockにすることで縦に積まれるようになり、入力欄の上に配置されます */
+    margin-bottom: 5px; /* ラベルと入力欄の間に少しだけ隙間を作ります */
+    font-weight: bold; /* ラベルの文字を太字にします */
+    font-size: 14px; /* ラベルの文字サイズを少し小さめにします */
+}
+
+input, select, textarea {
+    width: 100%; /* 入力欄の幅を親の箱いっぱいに広げます */
+    padding: 10px; /* 入力欄の内側に余白を作り、文字を入力しやすくします */
+    border: 1px solid #ccc; /* 枠線を薄いグレーにします */
+    border-radius: 6px; /* 入力欄の角を丸くします */
+    font-size: 16px; /* スマホでタップした時に画面が勝手にズームされないように、16px以上に設定します */
+}
+
+textarea {
+    resize: vertical; /* テキストエリアのサイズ変更を「縦方向のみ」に制限し、レイアウトが崩れないようにします */
+}
+
+.submit-btn {
+    width: 100%; /* ボタンを横幅いっぱいに広げます */
+    padding: 12px; /* ボタンを押しやすくするために上下左右の余白を大きめに取ります */
+    background-color: #4a90e2; /* ボタンの色を青にします */
+    color: white; /* ボタンの文字を白にします */
+    border: none; /* ボタンの元々の枠線を消します */
+    border-radius: 6px; /* 角を丸くします */
+    font-size: 16px; /* 文字を少し大きくします */
+    font-weight: bold; /* 文字を太字にします */
+    cursor: pointer; /* マウスを乗せた時に、矢印から「指のマーク」に変わるようにします */
+    transition: background-color 0.3s; /* マウスを乗せた時の色の変化を0.3秒かけてフワッとさせます */
+}
+
+.submit-btn:hover {
+    background-color: #357abd; /* マウスを上に乗せた時（ホバー時）に、ボタンの色を少し濃い青にします */
+}
+
+/* ▼ 記録表示エリア（カード）のデザイン */
+.diary-section h2 {
+    font-size: 18px; /* 小見出しの文字サイズ */
+    margin-bottom: 15px; /* 下の余白 */
+    color: #555; /* 濃いグレー */
+}
+
+.diary-card {
+    background: #fafafa; /* カードの背景をごく薄いグレーにして区別します */
+    border: 1px solid #e0e0e0; /* 薄い枠線をつけます */
+    border-radius: 8px; /* 角を少し丸くします */
+    padding: 15px; /* カードの内側に余白を作ります */
+    margin-bottom: 15px; /* カード同士がくっつかないように下の余白を作ります */
+}
+
+.card-header {
+    display: flex; /* Flexboxを使って、日付と名前を横並びにします */
+    justify-content: space-between; /* 日付を左端、名前を右端へと、両端に離して配置します */
+    margin-bottom: 10px; /* ヘッダーと内容の間に余白を作ります */
+    border-bottom: 1px solid #eee; /* ヘッダーと内容の間に薄い区切り線を引きます */
+    padding-bottom: 5px; /* 線の上の余白です */
+}
+
+.card-date {
+    font-weight: bold; /* 日付を太字にします */
+    color: #666; /* 少し薄いグレーにします */
+}
+
+.card-name {
+    background-color: #4a90e2; /* 名前の背景を青にします */
+    color: white; /* 文字を白にします */
+    padding: 2px 8px; /* 文字の周りに少し余白を作ります */
+    border-radius: 12px; /* 角を大きく丸くして「バッジ（ラベル）」のような見た目にします */
+    font-size: 12px; /* 文字を少し小さくします */
+}
+
+.measurements {
+    font-weight: bold; /* 身長・体重の数値を強調するために太字にします */
+    margin-bottom: 8px; /* 下に少し余白を作ります */
+}
+
+.memo-text {
+    line-height: 1.5; /* 日記の文章の行間を少し広くして（1.5倍）、読みやすくします */
+    color: #444; /* 文字の色を少しだけグレーにします */
+}

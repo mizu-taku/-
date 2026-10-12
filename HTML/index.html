@@ -1,0 +1,80 @@
+<!DOCTYPE html> <!-- HTML5の文書であることをブラウザに伝えます -->
+<html lang="ja"> <!-- ページの言語が日本語（ja）であることを指定します -->
+<head>
+    <!-- このheadタグの中には、画面には表示されない裏側の設定を書きます -->
+    <meta charset="UTF-8"> <!-- 文字化けを防ぐための文字コード指定です -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- スマホなどの画面幅に合わせて綺麗に表示させるための必須設定です -->
+    <title>成長日記アプリ</title> <!-- ブラウザのタブに表示されるタイトルです -->
+    <link rel="stylesheet" href="style.css"> <!-- 別ファイルで作ったスタイルシート（style.css）を読み込みます -->
+</head>
+<body>
+    <!-- bodyタグの中身が、実際にブラウザの画面に表示される部分です -->
+    <div class="container"> <!-- 画面全体が広がりすぎないように、コンテンツをまとめる「箱」を作ります -->
+        <header>
+            <h1>成長日記</h1> <!-- アプリのメインタイトル（大見出し）です -->
+        </header>
+
+        <!-- ▼ ここから入力フォームのエリア -->
+        <section class="form-section"> <!-- 入力部分をひとまとめにする区切りです -->
+            <form id="diary-form"> <!-- フォーム全体。後でJavaScriptからこのIDを使って入力データを取得します -->
+                
+                <div class="form-group"> <!-- ラベルと入力欄のセットをまとめる箱です -->
+                    <label for="date">日付</label> <!-- 入力欄の説明（項目名）です -->
+                    <input type="date" id="date" required> <!-- カレンダーから日付を選ぶ入力欄。requiredをつけると入力必須になります -->
+                </div>
+
+                <div class="form-group">
+                    <label for="child-name">なまえ</label>
+                    <select id="child-name" required> <!-- プルダウン（ドロップダウン）形式の選択欄です -->
+                        <option value="" disabled selected>選択してください</option> <!-- 初期状態の表示。disabledでこれ自体は選べなくしています -->
+                        <option value="上の子">上の子</option>
+                        <option value="下の子">下の子</option>
+                    </select>
+                </div>
+
+                <div class="form-row"> <!-- 身長と体重の入力を「横並び」にするための特別な箱です（CSSで横並びにします） -->
+                    <div class="form-group">
+                        <label for="height">身長 (cm)</label>
+                        <input type="number" id="height" step="0.1" placeholder="例: 105.2"> <!-- 数値のみ入力可能。step="0.1"で小数点第一位まで入力できるようにしています -->
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">体重 (kg)</label>
+                        <input type="number" id="weight" step="0.1" placeholder="例: 18.5">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="memo">日記・メモ</label>
+                    <textarea id="memo" rows="4" placeholder="今日の出来事や成長の記録など"></textarea> <!-- 複数行の文章を入力できるテキストエリアです。rows="4"で初期の高さを4行分にしています -->
+                </div>
+
+                <button type="submit" class="submit-btn">記録する</button> <!-- フォームのデータを送信するためのボタンです -->
+            </form>
+        </section>
+        <!-- ▲ 入力フォームのエリアここまで -->
+
+        <!-- ▼ ここから記録の表示エリア -->
+        <section class="diary-section">
+            <h2>記録一覧</h2> <!-- 小見出しです -->
+            
+            <div id="diary-list"> <!-- ★超重要：後でJavaScriptを使って、この空の箱の中に新しい記録のHTMLをどんどん追加していきます -->
+                
+                <!-- 以下の diary-card は完成イメージを確認するためのサンプル（仮置き）です -->
+                <!-- 最終的にはJavaScriptがこの形と同じHTMLを自動で作って画面に出すようにします -->
+                <div class="diary-card"> <!-- 1日分の記録をまとめるカード型の箱 -->
+                    <div class="card-header"> <!-- 日付と名前を横並びにするヘッダー部分 -->
+                        <span class="card-date">2026-10-11</span> <!-- 日付 -->
+                        <span class="card-name">上の子</span> <!-- 名前のバッジ -->
+                    </div>
+                    <div class="card-body"> <!-- 記録内容の部分 -->
+                        <p class="measurements">身長: 105.2cm / 体重: 18.5kg</p>
+                        <p class="memo-text">今日は公園で鉄棒の練習をした。</p>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <!-- ▲ 記録の表示エリアここまで -->
+    </div>
+</body>
+</html>
