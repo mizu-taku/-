@@ -57,6 +57,14 @@
         <!-- ▼ ここから記録の表示エリア -->
         <section class="diary-section">
             <h2>記録一覧</h2> <!-- 小見出しです -->
+            <!-- ▼ ここから追加：タブ切り替えボタン -->
+            <div class="tab-container">
+                <!-- data-targetという独自の目印をつけて、JSで判別しやすくします -->
+                <button class="tab-btn active" data-target="すべて">すべて</button>
+                <button class="tab-btn" data-target="上の子">上の子</button>
+                <button class="tab-btn" data-target="下の子">下の子</button>
+            </div>
+            <!-- ▲ 追加ここまで -->
             
             <div id="diary-list"> <!-- ★超重要：後でJavaScriptを使って、この空の箱の中に新しい記録のHTMLをどんどん追加していきます -->
                 

@@ -129,3 +129,28 @@ textarea {
     line-height: 1.5; /* 日記の文章の行間を少し広くして（1.5倍）、読みやすくします */
     color: #444; /* 文字の色を少しだけグレーにします */
 }
+
+/* ▼ タブ切り替えボタンのスタイル */
+.tab-container {
+    display: flex; /* ボタンを横並びにします */
+    gap: 10px; /* ボタン同士の隙間 */
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1; /* 3つのボタンを均等な幅にします */
+    padding: 8px;
+    border: 1px solid #4a90e2; /* 青い枠線 */
+    background-color: white; /* 通常時は白背景 */
+    color: #4a90e2; /* 通常時は青文字 */
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+/* 選ばれている（アクティブな）タブの見た目 */
+.tab-btn.active {
+    background-color: #4a90e2; /* 背景を青に塗りつぶす */
+    color: white; /* 文字を白に抜く */
+}
