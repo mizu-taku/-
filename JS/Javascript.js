@@ -78,5 +78,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // フォームをリセット
     form.reset();
+
+    // ==========================================
+    // 3. タブ切り替え時の処理
+    // ==========================================
+    
+    // 3つのタブボタンをすべて取得する
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    // それぞれのボタンに対して、クリックされた時の動きを設定する
+    tabBtns.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            // ① 見た目の切り替え：一旦すべてのボタンから 'active' を外し、クリックされたボタンだけに 'active' をつける
+            tabBtns.forEach(b => b.classList.remove('active'));
+            e.target.classList.add('active');
+
+            // ② 絞り込み条件の更新：クリックされたボタンの目印（data-target）を読み取る
+            currentFilter = e.target.getAttribute('data-target');
+
+            // ③ 画面の更新：新しい条件でマニュアルを再実行し、画面を貼り直す
+            renderDiaries();
+        })
+    })
     });
 });
